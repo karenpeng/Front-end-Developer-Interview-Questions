@@ -98,12 +98,32 @@ This file contains a number of front-end interview questions that can be used wh
 方法3：<br/>
   https://jsfiddle.net/karenpeng/axdezrcy/3/（b同时最短自适应了）
   
+--
+
 * Explain CSS sprites, and how you would implement them on a page or site.
-* What are your favourite image replacement techniques and which do you use when?
-* How would you approach fixing browser-specific styling issues?
-* How do you serve your pages for feature-constrained browsers?
+  和性能优化一起看<br/>
+* What are your favourite image replacement techniques and which do you use when?<br/>
+  1.sprite
+  2.image icon作为font
+  3.base64
+
+
+--
+  
+* How would you approach fixing browser-specific styling issues?<br/>
+  1.normalize
+  2.prefix
+    -webkit-
+    -o-
+    -ms-
+  3.css hack 在特定浏览器下才生效的属性
+   
+* How do you serve your pages for feature-constrained browsers？
   * What techniques/processes do you use?
 * What are the different ways to visually hide content (and make it available only for screen readers)?
+  http://www.candoudou.com/archives/481<br/>
+ 1. 优雅降级 gracefully degradation
+ 2. 渐进增强 progressive enhancement
 * Have you ever used a grid system, and if so, what do you prefer?
 * Have you used or implemented media queries or mobile specific layouts/CSS?
 * Are you familiar with styling SVG?
@@ -114,30 +134,36 @@ This file contains a number of front-end interview questions that can be used wh
 * How would you implement a web design comp that uses non-standard fonts?
 * Explain how a browser determines what elements match a CSS selector.
 * Describe pseudo-elements and discuss what they are used for. 
+  
 * Explain your understanding of the box model and how you would tell the browser in CSS to render your layout in different box models.
 * What does ```* { box-sizing: border-box; }``` do? What are its advantages?
   box-sizing: content box; width不包含order padding<br/>
   box-sizing: border box;       包含<br/>
 * List as many values for the display property that you can remember.
 * What's the difference between inline and inline-block?
-  inline-block有盒子模型 有left top 可以设position(对外inline 对内block)
+  inline-block有盒子模型 有left top 可以设position(对外inline 对内block)<br/>
 * What's the difference between a relative, fixed, absolute and statically positioned element?
   
 * The 'C' in CSS stands for Cascading.  How is priority determined in assigning styles (a few examples)?  How can you use this system to your advantage?
   优先级来了！
    * !important +1000
    * id + 100
-   * class +10
-   * tagname +1
+   * class，[属性]  +10
+   * tagname  伪类+1
    
-  如果同级 就* 先后顺序
-https://jsfiddle.net/karenpeng/0wy1n0ro/1/
+  如果同级 就* 先后顺序<br/>
+https://jsfiddle.net/karenpeng/0wy1n0ro/1/<br/>
 
-http://www.w3schools.com/cssref/css_selectors.asp
-属性选择器
-input[type='text']
-img[src="http://aaa.com"]
+http://www.w3schools.com/cssref/css_selectors.asp<br/>
+属性选择器<br/>
+input[type='text']<br/>
+img[src="http://aaa.com"]<br/>
 
+什么是伪元素？<br/>
+http://www.w3school.com.cn/css/css_pseudo_elements.asp<br/>
+
+什么是伪类？（指状态)
+http://www.w3school.com.cn/css/css_pseudo_classes.asp
 
 * What existing CSS frameworks have you used locally, or in production? How would you change/improve them?
 * Have you played around with the new CSS Flexbox or Grid specs?
