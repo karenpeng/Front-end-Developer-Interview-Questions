@@ -59,7 +59,8 @@ This file contains a number of front-end interview questions that can be used wh
   <charset="utf-8">
 * What kind of things must you be wary of when design or developing for multilingual sites?
 * What are `data-` attributes good for?<br/>
-  可以用来做选择器
+  自定义元素的Attribute 然后可以从el.getAttribute中取得<br/>
+  可以用来做选择器<br/>
 * Consider HTML5 as an open web platform. What are the building blocks of HTML5?
 * Describe the difference between a `cookie`, `sessionStorage` and `localStorage`.<br/>
  1. cookie由服务端生成，用于标识用户身份；而两个storage用于浏览器端缓存数据
@@ -82,17 +83,19 @@ This file contains a number of front-end interview questions that can be used wh
 
 * What is the difference between classes and ID's in CSS?
 * What's the difference between "resetting" and "normalizing" CSS? Which would you choose, and why?
+  normalize: make sure it's the same across browser
+  resetting: 覆盖
 * Describe Floats and how they work.</br>
   让其他元素，或者文本元素去尽量包围这个浮动元素，占满位置
 * Describe z-index and how stacking context is formed.
 * Describe BFC(Block Formatting Context) and how it works.
 * What are the various clearing techniques and which is appropriate for what context?<br/>
   clear left, clear right, overflow:hidden,<br/>
-方法1： overflow:auto;
-  https://jsfiddle.net/karenpeng/axdezrcy/
-方法2：clearfix class;
-  https://jsfiddle.net/karenpeng/axdezrcy/1/
-方法3：
+方法1： overflow:auto;<br/>
+  https://jsfiddle.net/karenpeng/axdezrcy/<br/>
+方法2：clearfix class;<br/>
+  https://jsfiddle.net/karenpeng/axdezrcy/1/<br/>
+方法3：<br/>
   https://jsfiddle.net/karenpeng/axdezrcy/3/（b同时最短自适应了）
   
 * Explain CSS sprites, and how you would implement them on a page or site.
@@ -113,14 +116,29 @@ This file contains a number of front-end interview questions that can be used wh
 * Describe pseudo-elements and discuss what they are used for. 
 * Explain your understanding of the box model and how you would tell the browser in CSS to render your layout in different box models.
 * What does ```* { box-sizing: border-box; }``` do? What are its advantages?
-  box-sizing: content box; width不包含order padding
-  box-sizing: border box;       包含
+  box-sizing: content box; width不包含order padding<br/>
+  box-sizing: border box;       包含<br/>
 * List as many values for the display property that you can remember.
 * What's the difference between inline and inline-block?
   inline-block有盒子模型 有left top 可以设position(对外inline 对内block)
 * What's the difference between a relative, fixed, absolute and statically positioned element?
   
 * The 'C' in CSS stands for Cascading.  How is priority determined in assigning styles (a few examples)?  How can you use this system to your advantage?
+  优先级来了！
+   * !important +1000
+   * id + 100
+   * class +10
+   * tagname +1
+   
+  如果同级 就* 先后顺序
+https://jsfiddle.net/karenpeng/0wy1n0ro/1/
+
+http://www.w3schools.com/cssref/css_selectors.asp
+属性选择器
+input[type='text']
+img[src="http://aaa.com"]
+
+
 * What existing CSS frameworks have you used locally, or in production? How would you change/improve them?
 * Have you played around with the new CSS Flexbox or Grid specs?
 * How is responsive design different from adaptive design?
