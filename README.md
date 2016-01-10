@@ -49,15 +49,23 @@ This file contains a number of front-end interview questions that can be used wh
 #### HTML Questions:
 
 * What does a `doctype` do?
+  声明html的版本 默认是html5 可以写一堆表示html4.01
+  如果不写的话会引发quirks mode 盒子模型不要用
 * What's the difference between standards mode and quirks mode?
 * What's the difference between HTML and XHTML?
+  xhtml比较严格
 * Are there any problems with serving pages as `application/xhtml+xml`?
 * How do you serve a page with content in multiple languages?
+  <charset="utf-8">
 * What kind of things must you be wary of when design or developing for multilingual sites?
 * What are `data-` attributes good for?
+  可以用来做选择器
 * Consider HTML5 as an open web platform. What are the building blocks of HTML5?
 * Describe the difference between a `cookie`, `sessionStorage` and `localStorage`.
 * Describe the difference between `<script>`, `<script async>` and `<script defer>`.
+  当遇到解释<script>tag 的时候, 一般构建dom tree会暂停, 发出srcipt的get请求然后等待返回并执行script, 执行完成才继续dom tree的解析
+  defer就是让dom tree一直构建 直到完成的时候才执行script
+  async好像是让请求发出 这时候dom tree不会停止解析 直到拿到返回体 执行Script(这时候暂停dom tree解析)， 然后
 * Why is it generally a good idea to position CSS `<link>`s between `<head></head>` and JS `<script>`s just before `</body>`? Do you know any exceptions?
 * What is progressive rendering?
 * Have you used different HTML templating languages before?
@@ -88,9 +96,13 @@ This file contains a number of front-end interview questions that can be used wh
 * Describe pseudo-elements and discuss what they are used for. 
 * Explain your understanding of the box model and how you would tell the browser in CSS to render your layout in different box models.
 * What does ```* { box-sizing: border-box; }``` do? What are its advantages?
+  box-sizing: content box; width不包含order padding
+  box-sizing: border box;       包含
 * List as many values for the display property that you can remember.
 * What's the difference between inline and inline-block?
+  inline-block有盒子模型 有left top 可以设position(对外inline 对内block)
 * What's the difference between a relative, fixed, absolute and statically positioned element?
+  
 * The 'C' in CSS stands for Cascading.  How is priority determined in assigning styles (a few examples)?  How can you use this system to your advantage?
 * What existing CSS frameworks have you used locally, or in production? How would you change/improve them?
 * Have you played around with the new CSS Flexbox or Grid specs?
