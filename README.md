@@ -69,11 +69,11 @@ This file contains a number of front-end interview questions that can be used wh
  5. 会话的storage会在会话结束后销毁；而local的那个会永久保存直到覆盖。cookie会在过期时间之后销毁。
  6. 安全性方面，cookie中最好不要放置任何明文的东西。两个storage的数据提交后在服务端一定要校验（其实任何payload和qs里的参数都要校验）。
 * Describe the difference between `<script>`, `<script async>` and `<script defer>`.<br/>
-  当遇到解释<script>tag 的时候, 一般构建dom tree会暂停, 发出srcipt的get请求然后等待返回并执行script, 执行完成才继续dom tree的解析
-  defer就是让dom tree一直构建 直到完成的时候才执行script
-  async好像是让请求发出 这时候dom tree不会停止解析 直到拿到返回体 执行Script(这时候暂停dom tree解析)， 然后
+  当遇到解释script tag 的时候, 一般构建dom tree会暂停, 发出srcipt的get请求然后等待返回并执行script, 执行完成才继续dom tree的解析<br/>
+  defer就是让dom tree一直构建 直到完成的时候才执行script</br>
+  async好像是让请求发出 这时候dom tree不会停止解析 直到拿到返回体 执行Script(这时候暂停dom tree解析)， 然后继续
 * Why is it generally a good idea to position CSS `<link>`s between `<head></head>` and JS `<script>`s just before `</body>`? Do you know any exceptions?<br/>
-  让css渲染树尽早生成，尽早重绘重排dom tree(dom tree一边在解析）
+  让css渲染树尽早生成，尽早重绘重排dom tree(dom tree一边在解析)<br/>
   如果在最后用户体验不好，看到一个无css页面，然后才重绘（也可能重排）
 * What is progressive rendering?
 * Have you used different HTML templating languages before?
@@ -82,12 +82,18 @@ This file contains a number of front-end interview questions that can be used wh
 
 * What is the difference between classes and ID's in CSS?
 * What's the difference between "resetting" and "normalizing" CSS? Which would you choose, and why?
-* Describe Floats and how they work.
+* Describe Floats and how they work.</br>
   让其他元素，或者文本元素去尽量包围这个浮动元素，占满位置
 * Describe z-index and how stacking context is formed.
 * Describe BFC(Block Formatting Context) and how it works.
-* What are the various clearing techniques and which is appropriate for what context?
-  clear left, clear right
+* What are the various clearing techniques and which is appropriate for what context?<br/>
+  clear left, clear right, overflow:hidden,<br/>
+方法1： overflow:auto;
+  https://jsfiddle.net/karenpeng/axdezrcy/
+方法2：clearfix class;
+  https://jsfiddle.net/karenpeng/axdezrcy/1/
+方法3：
+  https://jsfiddle.net/karenpeng/axdezrcy/3/（b同时最短自适应了）
   
 * Explain CSS sprites, and how you would implement them on a page or site.
 * What are your favourite image replacement techniques and which do you use when?
