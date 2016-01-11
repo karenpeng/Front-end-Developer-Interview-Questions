@@ -174,7 +174,8 @@ http://www.w3school.com.cn/css/css_pseudo_classes.asp
 #### JS Questions:
 
 * Explain event delegation
-* Explain how `this` works in JavaScript
+  Explain how `this` works in JavaScript<br/>
+* http://bonsaiden.github.io/JavaScript-Garden/zh/
 * Explain how prototypal inheritance works
 * What do you think of AMD vs CommonJS?
 * Explain why the following doesn't work as an IIFE: `function foo(){ }();`.
@@ -232,7 +233,22 @@ duplicate([1,2,3,4,5]); // [1,2,3,4,5,1,2,3,4,5]
 * What is the purpose of a code style linting tool?
 
 #### Performance Questions:
-
+性能优化
+1.减少dom reflow repaint
+  css header
+  js bottom
+  js里面减少loop dom tree
+  documentFragment
+  https://jsfiddle.net/karenpeng/7m1cybgm/
+  css 选择器的写法
+2.减少http request
+  css, js file bundle
+  css sprite
+  image icon font base64
+3.cache
+  浏览器
+  localstroge
+  
 * What tools would you use to find a performance bug in your code?
 * What are some ways you may improve your website's scrolling performance?
 * Explain the difference between layout, painting and compositing.
