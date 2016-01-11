@@ -63,6 +63,7 @@ This file contains a number of front-end interview questions that can be used wh
   可以用来做选择器<br/>
 * Consider HTML5 as an open web platform. What are the building blocks of HTML5?
 * Describe the difference between a `cookie`, `sessionStorage` and `localStorage`.<br/>
+  http://jerryzou.com/posts/cookie-and-web-storage/<br/>
  1. cookie由服务端生成，用于标识用户身份；而两个storage用于浏览器端缓存数据 
  2. 三者都是键值对的集合
  3. 一般情况下浏览器端不会修改cookie，但会频繁操作两个storage
