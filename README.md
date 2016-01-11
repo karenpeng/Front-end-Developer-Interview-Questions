@@ -202,6 +202,9 @@ http://www.w3school.com.cn/css/css_pseudo_classes.asp
 * Difference between document load event and document ready event?
 * What is the difference between `==` and `===`?
 * Explain the same-origin policy with regards to JavaScript.
+* 事件绑定
+  如果是addEventListener绑定了多个，那么这么多个都会被执行<br/>
+  如果是el.onclick = function(){}绑定了多个function, 那么是会被覆盖的，只执行最后一个<br/>
 * Make this work:
 ```javascript
 duplicate([1,2,3,4,5]); // [1,2,3,4,5,1,2,3,4,5]
