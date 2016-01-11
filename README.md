@@ -49,21 +49,21 @@ This file contains a number of front-end interview questions that can be used wh
 #### HTML Questions:
 
 * What does a `doctype` do? <br/>
-  声明html的版本 默认是html5 可以写一堆表示html4.01
-  如果不写的话会引发quirks mode 盒子模型不要用
+  声明html的版本 默认是html5 可以写一堆表示html4.01 <br/>
+  如果不写的话会引发quirks mode 盒子模型不要用 <br/>
 * What's the difference between standards mode and quirks mode?
 * What's the difference between HTML and XHTML?<br/>
-  xhtml比较严格
+  xhtml比较严格 <br/>
 * Are there any problems with serving pages as `application/xhtml+xml`?
 * How do you serve a page with content in multiple languages?<br/>
-  <charset="utf-8">
+  <charset="utf-8"> <br/>
 * What kind of things must you be wary of when design or developing for multilingual sites?
 * What are `data-` attributes good for?<br/>
   自定义元素的Attribute 然后可以从el.getAttribute中取得<br/>
   可以用来做选择器<br/>
 * Consider HTML5 as an open web platform. What are the building blocks of HTML5?
 * Describe the difference between a `cookie`, `sessionStorage` and `localStorage`.<br/>
- 1. cookie由服务端生成，用于标识用户身份；而两个storage用于浏览器端缓存数据
+ 1. cookie由服务端生成，用于标识用户身份；而两个storage用于浏览器端缓存数据 
  2. 三者都是键值对的集合
  3. 一般情况下浏览器端不会修改cookie，但会频繁操作两个storage
  4. 如果保存了cookie的话，http请求中一定会带上；而两个storage可以由脚本选择性的提交
@@ -83,10 +83,10 @@ This file contains a number of front-end interview questions that can be used wh
 
 * What is the difference between classes and ID's in CSS?
 * What's the difference between "resetting" and "normalizing" CSS? Which would you choose, and why?
-  normalize: make sure it's the same across browser
-  resetting: 覆盖
+  normalize: make sure it's the same across browser <br/>
+  resetting: 覆盖 <br/>
 * Describe Floats and how they work.</br>
-  让其他元素，或者文本元素去尽量包围这个浮动元素，占满位置
+  让其他元素，或者文本元素去尽量包围这个浮动元素，占满位置 <br/>
 * Describe z-index and how stacking context is formed.
 * Describe BFC(Block Formatting Context) and how it works.
 * What are the various clearing techniques and which is appropriate for what context?<br/>
@@ -96,15 +96,16 @@ This file contains a number of front-end interview questions that can be used wh
 方法2：clearfix class;<br/>
   https://jsfiddle.net/karenpeng/axdezrcy/1/<br/>
 方法3：<br/>
-  https://jsfiddle.net/karenpeng/axdezrcy/3/（b同时最短自适应了）
+  https://jsfiddle.net/karenpeng/axdezrcy/3/ <br/>
+（b同时最短自适应了）
   
 --
 
 * Explain CSS sprites, and how you would implement them on a page or site.
   和性能优化一起看<br/>
 * What are your favourite image replacement techniques and which do you use when?<br/>
-  1.sprite
-  2.image icon作为font
+  1.sprite <br/>
+  2.image icon作为font <br/>
   3.base64
 
 
@@ -113,9 +114,9 @@ This file contains a number of front-end interview questions that can be used wh
 * How would you approach fixing browser-specific styling issues?<br/>
   1.normalize
   2.prefix
-    -webkit-
-    -o-
-    -ms-
+    -webkit- <br/>
+    -o- <br/>
+    -ms- <br/>
   3.css hack 在特定浏览器下才生效的属性
    
 * How do you serve your pages for feature-constrained browsers？
@@ -136,7 +137,7 @@ This file contains a number of front-end interview questions that can be used wh
 * Describe pseudo-elements and discuss what they are used for. 
   
 * Explain your understanding of the box model and how you would tell the browser in CSS to render your layout in different box models.
-* What does ```* { box-sizing: border-box; }``` do? What are its advantages?
+* What does ```* { box-sizing: border-box; }``` do? What are its advantages? <br/>
   box-sizing: content box; width不包含order padding<br/>
   box-sizing: border box;       包含<br/>
 * List as many values for the display property that you can remember.
