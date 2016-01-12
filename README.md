@@ -230,7 +230,7 @@ b.bar;
 c.bar;
 ```  
 * Explain how prototypal inheritance works
-``` 
+``` js
 //copy stuffs inside constructor
 //point to prototype(share among instances)
 function A(){};
@@ -324,10 +324,10 @@ c.getter() //2
 //dataType是返回格式
 //contentType是发送格式
 ```
-* Explain how JSONP works (and how it's not really AJAX).
-1.新建一个script tag, 把url放进src,把script tag append到document head里面去(innerHTML没有哦，只有src有用, 它就跑去请求了
-2.同时会在window下挂着一个 名为你自定义success call back的 函数,当返回数据时会把数据传到这个函数并执行
-3.这个函数会把script tage remove 同时delete自己
+* Explain how JSONP works (and how it's not really AJAX).<br/>
+ 1.新建一个script tag, 把url放进src,把script tag append到document head里面去(innerHTML没有哦，只有src有用, 它就跑去请求了
+ 2.同时会在window下挂着一个 名为你自定义success call back的 函数,当返回数据时会把数据传到这个函数并执行
+ 3.这个函数会把script tage remove 同时delete自己
 * Have you ever used JavaScript templating?
   * If so, what libraries have you used?
 * Explain "hoisting".
@@ -335,11 +335,14 @@ c.getter() //2
 * What's the difference between an "attribute" and a "property"?
 * Why is extending built-in JavaScript objects not a good idea?
 * Difference between document load event and document ready event?
+  load means all the resources including img, video is loaed<br/>
+  ready simply means the dom tree is rendered<br/>
 * What is the difference between `==` and `===`?
 ```js
    if (Object.prototype.toString.call(args) !== '[object Array]'){}
 ```
 * Explain the same-origin policy with regards to JavaScript.
+  https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy<br/>
   ajax用jsonp<br/>
 * 事件绑定
   如果是addEventListener绑定了多个，那么这么多个都会被执行<br/>
