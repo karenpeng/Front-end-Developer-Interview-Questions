@@ -142,8 +142,8 @@ http://www.candoudou.com/archives/481<br/>
   5.mixins
   6.extend/inheritance
   7.operators
-* How would you implement a web design comp that uses non-standard fonts?
- ```html
+* How would you implement a web design comp that uses non-standard fonts?<br/>
+ ```
  <style type="text/css">
 @font-face {
     font-family: "My Custom Font";
@@ -154,7 +154,6 @@ p.customfont {
 }
 </style>
 <p class="customfont">Hello world!</p>
-
 ```
 * Explain how a browser determines what elements match a CSS selector.
   omg from right to left<br/>
@@ -223,7 +222,7 @@ http://bonsaiden.github.io/JavaScript-Garden/zh/
 //the new key word
 function a(){
   if(!(this instanceof a)){return new a();}
-  this.bar = 'foo';//why this still works even it's below the return ???
+  this.bar = 'foo';//this line could be blow the return because when it return the new a(), this line gets executed
 }
 var b = a();
 var c = new a();
@@ -232,17 +231,47 @@ c.bar;
 ```  
 * Explain how prototypal inheritance works
 ``` 
-omg
+//copy stuffs inside constructor
+//point to prototype(share among instances)
+function A(){};
+A.prototype.bar = [];
+var a = new A();
+var b = new A();
+a.bar//[]
+b.bar//[]
+b.bar[0] = 1;
+a.bar;//[1];
+b.bar;//[1];
+a.bar = [0];
+b.bar;//[1]
+a.bar;//[0];
 ```
 * What do you think of AMD vs CommonJS?
 * Explain why the following doesn't work as an IIFE: `function foo(){ }();`.
   * What needs to be changed to properly make it an IIFE?
+  http://benalman.com/news/2010/11/immediately-invoked-function-expression/<br/>
 ```js
 (function foo(){console.log(this)})();
 //when engine saw ```()``` it thinks you are calling a functin without a name
 //so gives you an error
 ```
 * What's the difference between a variable that is: `null`, `undefined` or undeclared?
+```js
+typeof null //"object"
+typeof undefined //"undefined"
+```
+```js
+function a(b){
+  //false, undefined, 0, null, '' 都会触发
+  if(!b){
+  }
+}
+```
+```js
+[0,'',false] //二者互相 ==
+[null, undefined]//二者互相==
+//但是两个数组之间的不等
+```
   * How would you go about checking for any of these states?
 * What is a closure, and how/why would you use one?
 ```js
@@ -261,17 +290,44 @@ var c = a(1)
 c.getter() //1
 c.setter(2)
 c.getter() //2
+
+(function(){})();
 ```
 * What's a typical use case for anonymous functions?
 * How do you organize your code? (module pattern, classical inheritance?)
 * What's the difference between host objects and native objects?
+ http://stackoverflow.com/questions/7614317/what-is-the-difference-between-native-objects-and-host-objects<br/>
 * Difference between: `function Person(){}`, `var person = Person()`, and `var person = new Person()`?
 * What's the difference between `.call` and `.apply`?
 * Explain `Function.prototype.bind`.
 * When would you use `document.write()`?
 * What's the difference between feature detection, feature inference, and using the UA string?
 * Explain AJAX in as much detail as possible.
+ async json and xml<br/>
+ it's a xmlhttp request
+
+ new XMLHttpRequest
+ activeX - IE
+ 
+ x.onreadystatechange = cb
+ if readystate 是4cb会被执行 （表示成功）
+ 
+ ```js
+ $.ajax({
+  url: "script.php",
+  method: "POST",
+  data: { id : menuId },
+  dataType: "html",
+  contentType: 'json'
+});
+//http://stackoverflow.com/questions/14322984/differences-between-contenttype-and-datatype-in-jquery-ajax-function
+//dataType是返回格式
+//contentType是发送格式
+```
 * Explain how JSONP works (and how it's not really AJAX).
+1.新建一个script tag, 把url放进src,把script tag append到document head里面去(innerHTML没有哦，只有src有用, 它就跑去请求了
+2.同时会在window下挂着一个 名为你自定义success call back的 函数,当返回数据时会把数据传到这个函数并执行
+3.这个函数会把script tage remove 同时delete自己
 * Have you ever used JavaScript templating?
   * If so, what libraries have you used?
 * Explain "hoisting".
@@ -280,7 +336,11 @@ c.getter() //2
 * Why is extending built-in JavaScript objects not a good idea?
 * Difference between document load event and document ready event?
 * What is the difference between `==` and `===`?
+```js
+   if (Object.prototype.toString.call(args) !== '[object Array]'){}
+```
 * Explain the same-origin policy with regards to JavaScript.
+  ajax用jsonp<br/>
 * 事件绑定
   如果是addEventListener绑定了多个，那么这么多个都会被执行<br/>
   如果是el.onclick = function(){}绑定了多个function, 那么是会被覆盖的，只执行最后一个<br/>
@@ -289,6 +349,24 @@ c.getter() //2
 duplicate([1,2,3,4,5]); // [1,2,3,4,5,1,2,3,4,5]
 ```
 * Why is it called a Ternary expression, what does the word "Ternary" indicate?
+* implement 'singleton'
+```js
+var ClassA;
+(function(){
+  var private;
+  ClassA = function(val){
+    private.value = val;
+    return private;//constructor默认返回this 但是没手动修改为object之后返回这个object为它的this;
+  }
+  ClassA.getInstance = function(){
+    return private;
+  };
+})();
+var a = new ClassA();//有new也可以
+a.value;
+var b = ClassA.getInstance();//没new也可以
+b.value;
+```
 * What is `"use strict";`? what are the advantages and disadvantages to using it?
 * Create a for loop that iterates up to `100` while outputting **"fizz"** at multiples of `3`, **"buzz"** at multiples of `5` and **"fizzbuzz"** at multiples of `3` and `5`
 * Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?
