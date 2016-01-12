@@ -114,7 +114,7 @@ This file contains a number of front-end interview questions that can be used wh
   
 * How would you approach fixing browser-specific styling issues?<br/>
   1.normalize
-  2.prefix
+  2.prefix<br/>
     -webkit- <br/>
     -o- <br/>
     -ms- <br/>
@@ -122,10 +122,12 @@ This file contains a number of front-end interview questions that can be used wh
    
 * How do you serve your pages for feature-constrained browsers？
   * What techniques/processes do you use?
-* What are the different ways to visually hide content (and make it available only for screen readers)?
-  http://www.candoudou.com/archives/481<br/>
+http://www.candoudou.com/archives/481<br/>
  1. 优雅降级 gracefully degradation
  2. 渐进增强 progressive enhancement
+* What are the different ways to visually hide content (and make it available only for screen readers)?
+  display: none;<br/>
+  visibility: hindden;<br/>
 * Have you ever used a grid system, and if so, what do you prefer?
 * Have you used or implemented media queries or mobile specific layouts/CSS?
 * Are you familiar with styling SVG?
@@ -133,10 +135,30 @@ This file contains a number of front-end interview questions that can be used wh
 * What are some of the "gotchas" for writing efficient CSS?
 * What are the advantages/disadvantages of using CSS preprocessors?
   * Describe what you like and dislike about the CSS preprocessors you have used.
+  1.varialbes
+  2.nesting
+  3.partials
+  4.import
+  5.mixins
+  6.extend/inheritance
+  7.operators
 * How would you implement a web design comp that uses non-standard fonts?
+ ```html
+ <style type="text/css">
+@font-face {
+    font-family: "My Custom Font";
+    src: url(http://www.example.org/mycustomfont.ttf) format("truetype");
+}
+p.customfont { 
+    font-family: "My Custom Font", Verdana, Tahoma;
+}
+</style>
+<p class="customfont">Hello world!</p>
+
+```
 * Explain how a browser determines what elements match a CSS selector.
+  omg from right to left<br/>
 * Describe pseudo-elements and discuss what they are used for. 
-  
 * Explain your understanding of the box model and how you would tell the browser in CSS to render your layout in different box models.
 * What does ```* { box-sizing: border-box; }``` do? What are its advantages? <br/>
   box-sizing: content box; width不包含order padding<br/>
@@ -168,23 +190,78 @@ http://www.w3school.com.cn/css/css_pseudo_elements.asp<br/>
 http://www.w3school.com.cn/css/css_pseudo_classes.asp
 
 * What existing CSS frameworks have you used locally, or in production? How would you change/improve them?
+  bootstrap, make it modular will be great<br/>
 * Have you played around with the new CSS Flexbox or Grid specs?
 * How is responsive design different from adaptive design?
 * Have you ever worked with retina graphics? If so, when and what techniques did you use?
 * Is there any reason you'd want to use `translate()` instead of *absolute positioning*, or vice-versa? And why?
 
 #### JS Questions:
+http://bonsaiden.github.io/JavaScript-Garden/zh/
 
 * Explain event delegation
   Explain how `this` works in JavaScript<br/>
-* http://bonsaiden.github.io/JavaScript-Garden/zh/
+```js
+  function a (){
+    b: function(){
+      console.log(this) //this points to a
+    }
+  }
+```  
+```js
+  var a = {
+    b: function(){
+      console.log(this) //this points to a
+    }
+  }
+  a.b()// a
+  var c = a.b
+  c() //global
+  c.call(a);//a again 显示设置this
+```  
+```js
+//the new key word
+function a(){
+  if(!(this instanceof a)){return new a();}
+  this.bar = 'foo';//why this still works even it's below the return ???
+}
+var b = a();
+var c = new a();
+b.bar;
+c.bar;
+```  
 * Explain how prototypal inheritance works
+``` 
+omg
+```
 * What do you think of AMD vs CommonJS?
 * Explain why the following doesn't work as an IIFE: `function foo(){ }();`.
   * What needs to be changed to properly make it an IIFE?
+```js
+(function foo(){console.log(this)})();
+//when engine saw ```()``` it thinks you are calling a functin without a name
+//so gives you an error
+```
 * What's the difference between a variable that is: `null`, `undefined` or undeclared?
   * How would you go about checking for any of these states?
 * What is a closure, and how/why would you use one?
+```js
+var a = function(val){
+  var c = val;
+  return{
+    setter: function(val){
+      c = val;
+    },
+    getter: function(){
+      return c;
+    }
+  }
+}
+var c = a(1)
+c.getter() //1
+c.setter(2)
+c.getter() //2
+```
 * What's a typical use case for anonymous functions?
 * How do you organize your code? (module pattern, classical inheritance?)
 * What's the difference between host objects and native objects?
