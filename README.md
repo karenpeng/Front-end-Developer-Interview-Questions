@@ -247,6 +247,7 @@ b.bar;//[1]
 a.bar;//[0];
 ```
 * What do you think of AMD vs CommonJS?
+  http://www.leanpanda.com/blog/2015/06/28/amd-requirejs-commonjs-browserify/<br/>
 * Explain why the following doesn't work as an IIFE: `function foo(){ }();`.
   * What needs to be changed to properly make it an IIFE?
   http://benalman.com/news/2010/11/immediately-invoked-function-expression/<br/>
@@ -325,7 +326,7 @@ c.getter() //2
 //contentType是发送格式
 ```
 * Explain how JSONP works (and how it's not really AJAX).<br/>
- 1.新建一个script tag, 把url放进src,把script tag append到document head里面去(innerHTML没有哦，只有src有用, 它就跑去请求了
+ 1.新建一个script tag, 把url放进src,把script tag append到document head里面去(innerHTML没有哦，只有src有用), 它就跑去请求了
  2.同时会在window下挂着一个 名为你自定义success call back的 函数,当返回数据时会把数据传到这个函数并执行
  3.这个函数会把script tage remove 同时delete自己
 * Have you ever used JavaScript templating?
@@ -350,6 +351,7 @@ c.getter() //2
 * Make this work:
 ```javascript
 duplicate([1,2,3,4,5]); // [1,2,3,4,5,1,2,3,4,5]
+function duplicate(arr){return arr.concat(arr)}
 ```
 * Why is it called a Ternary expression, what does the word "Ternary" indicate?
 * implement 'singleton'
@@ -376,10 +378,16 @@ b.value;
 * Why would you use something like the `load` event? Does this event have disadvantages? Do you know any alternatives, and why would you use those?
 * Explain what a single page app is and how to make one SEO-friendly.
 * What is the extent of your experience with Promises and/or their polyfills?
+  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise<br/>
 * What are the pros and cons of using Promises instead of callbacks?
 * What are some of the advantages/disadvantages of writing JavaScript code in a language that compiles to JavaScript?
 * What tools and techniques do you use debugging JavaScript code?
 * What language constructions do you use for iterating over object properties and array items?
+ ```js
+ for(var key in obj)
+ 
+ arr.forEach()
+ ```
 * Explain the difference between mutable and immutable objects.
   * What is an example of an immutable object in JavaScript?
   * What are the pros and cons of immutability?
@@ -387,6 +395,7 @@ b.value;
 * Explain the difference between synchronous and asynchronous functions.
 * What is event loop?
   * What is the difference between call stack and task queue?
+  queue -> stack
 
 #### Testing Questions:
 
@@ -396,7 +405,7 @@ b.value;
 * What is the purpose of a code style linting tool?
 
 #### Performance Questions:
-性能优化
+性能优化<br/>
 1.减少dom reflow repaint
   css header
   js bottom
@@ -411,7 +420,9 @@ b.value;
 3.cache
   浏览器
   localstroge
-  
+
+浏览器兼容性问题<br/>
+
 * What tools would you use to find a performance bug in your code?
 * What are some ways you may improve your website's scrolling performance?
 * Explain the difference between layout, painting and compositing.
@@ -419,6 +430,7 @@ b.value;
 #### Network Questions:
 
 * Traditionally, why has it been better to serve site assets from multiple domains?
+ http request limitation<br/>
 * Do your best to describe the process from the time you type in a website's URL to it finishing loading on your screen.
 * What are the differences between Long-Polling, Websockets and Server-Sent Events?
 * Explain the following request and response headers:
