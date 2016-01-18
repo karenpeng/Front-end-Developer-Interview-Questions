@@ -59,6 +59,7 @@ This file contains a number of front-end interview questions that can be used wh
   <charset="utf-8"> <br/>
 * What kind of things must you be wary of when design or developing for multilingual sites?
 * What are `data-` attributes good for?<br/>
+  https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_data_attributes<br/>
   自定义元素的Attribute 然后可以从el.getAttribute中取得<br/>
   可以用来做选择器<br/>
 * Consider HTML5 as an open web platform. What are the building blocks of HTML5?
